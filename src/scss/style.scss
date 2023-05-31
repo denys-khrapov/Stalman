@@ -1,0 +1,57 @@
+// @import "fonts";
+@import "mixins";
+
+$fontFamily: "Arial", sans-serif;
+$fontSize: 16px;
+
+$minWidth: 320px;
+$maxWidth: 1920px;
+$maxWidthContainer: 1200px;
+$md1: 1199px;
+$md2: 992px;
+$md3: 767px;
+$md4: 575px;
+
+@import "null";
+
+body {
+	&.lock {
+		overflow: hidden;
+	}
+	font-size: $fontSize;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	width: 100%;
+	max-width: $maxWidthContainer;
+	margin: 0 auto;
+	padding: 0 42px;
+	@media (max-width: $md1) {
+		// max-width: 100%;
+		// padding: 0 64px;
+	}
+	@media (max-width: $md2) {
+	}
+	@media (max-width: $md3) {
+	}
+	@media (max-width: $md4) {
+	}
+}
+
+.content {
+	flex: 1 1 auto;
+}
+
+@import "blocks/forms";
+@import "blocks/header";
+@import "blocks/footer";
