@@ -72,3 +72,12 @@
 		row-gap: 8px;
 	}
 }
+
+@media (max-width: $md3) {
+	/*! -- Accordion styles----------------------------- */
+	.accordion {
+		&__btn {
+			transition: unset;
+		}
+	}
+}

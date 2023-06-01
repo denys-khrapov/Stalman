@@ -1,0 +1,199 @@
+/*! -- About styles----------------------------- */
+.about {
+	position: relative;
+	background-color: $purple-source;
+	&__inner {
+		padding: 256px 0px;
+		width: 100%;
+		height: 100%;
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 94px;
+			right: 0;
+			background-image: url("../img/about-bg-logo.png");
+			background-position: center center;
+			background-size: 339px 868px;
+			background-repeat: no-repeat;
+			width: 339px;
+			height: 868px;
+		}
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: url("../img/dots-bg.png");
+		width: 100%;
+		height: 100%;
+		background-repeat: repeat;
+		background-size: cover;
+		mix-blend-mode: color-burn;
+	}
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-right: 32px dashed $purple-400;
+		width: 100%;
+		height: 100%;
+	}
+	&__container {
+		position: relative;
+		z-index: 5;
+		display: flex;
+		flex-direction: row;
+		column-gap: 24px;
+	}
+	&__right-column {
+		padding: 23px 0px;
+		width: 100%;
+		max-width: 641px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 64px;
+	}
+	&__left-column {
+		position: relative;
+		width: calc(100% - 641px);
+		padding-top: 155px;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-image: url("../img/ua-map.png");
+			background-position: center center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 829px;
+			height: 546px;
+		}
+	}
+
+	&__text-holder {
+		display: flex;
+		flex-direction: row;
+		column-gap: 24px;
+		align-items: center;
+	}
+	&__title {
+		font-weight: 700;
+		font-size: 35px;
+		line-height: 45px;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		text-align: right;
+		width: calc(100% - 403px);
+		-webkit-text-stroke: 1px $purple-50;
+		text-stroke: 1px $purple-50;
+		color: transparent;
+	}
+	&__text {
+		width: 100%;
+		color: $purple-200;
+		max-width: 403px;
+	}
+}
+
+@media (max-width: 1650px) {
+	/*! -- About styles----------------------------- */
+	.about {
+		&__inner {
+			&::after {
+				left: calc(1650px - 339px);
+			}
+		}
+	}
+}
+
+@media (max-width: $md1) {
+	/*! -- About styles----------------------------- */
+	.about {
+		&__inner {
+			padding: 96px 0px 64px;
+			&::after {
+				display: none;
+			}
+		}
+		&::after {
+			display: none;
+		}
+		&__container {
+			align-items: center;
+		}
+		&__left-column {
+			padding: 0px 0px 0px 0px;
+			width: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: max-content;
+			&::before {
+				background-image: url("../img/ua-map-mobile.png");
+				width: 414.5px;
+				height: 273px;
+			}
+		}
+		&__logo {
+			display: flex;
+			width: 100%;
+			max-width: 325px;
+			height: 273px;
+			svg {
+				height: 185px;
+			}
+		}
+		&__right-column {
+			padding: 0;
+			width: 50%;
+			max-width: 100%;
+			row-gap: 32px;
+		}
+		&__text-holder {
+			flex-direction: column;
+			column-gap: 0px;
+			row-gap: 16px;
+		}
+		&__title {
+			width: 100%;
+			text-align: left;
+			line-height: 24px;
+		}
+		&__text {
+			max-width: 100%;
+			font-size: 13px;
+			line-height: 18px;
+		}
+	}
+}
+
+@media (max-width: $md3) {
+	/*! -- About styles----------------------------- */
+	.about {
+		&__container {
+			padding: 0px 64px;
+		}
+	}
+}
+
+@media (max-width: $md4) {
+	/*! -- About styles----------------------------- */
+	.about {
+		&__container {
+			padding: 0px 16px;
+			flex-direction: column;
+			column-gap: 0px;
+			row-gap: 64px;
+		}
+		&__right-column,
+		&__left-column {
+			width: 100%;
+		}
+	}
+}

@@ -420,6 +420,151 @@ input[type=tel].disabled::placeholder {
   background-size: 16px 16px;
 }
 
+/*! -- About styles----------------------------- */
+
+.about {
+  position: relative;
+  background-color: #3d3e56;
+}
+
+.about__inner {
+  padding: 256px 0px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.no-webp .about__inner::after {
+  background-image: url("../img/about-bg-logo.png");
+}
+
+.about__inner::after {
+  content: "";
+  position: absolute;
+  top: 94px;
+  right: 0;
+  background-position: center center;
+  background-size: 339px 868px;
+  background-repeat: no-repeat;
+  width: 339px;
+  height: 868px;
+}
+
+.no-webp .about::before {
+  background-image: url("../img/dots-bg.png");
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-size: cover;
+  mix-blend-mode: color-burn;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-right: 32px dashed rgb(155, 152, 177);
+  width: 100%;
+  height: 100%;
+}
+
+.about__container {
+  position: relative;
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+}
+
+.about__right-column {
+  padding: 23px 0px;
+  width: 100%;
+  max-width: 641px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  row-gap: 64px;
+}
+
+.about__left-column {
+  position: relative;
+  width: calc(100% - 641px);
+  padding-top: 155px;
+}
+
+.no-webp .about__left-column::before {
+  background-image: url("../img/ua-map.png");
+}
+
+.about__left-column::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 829px;
+  height: 546px;
+}
+
+.about__text-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-column-gap: 24px;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.about__title {
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: right;
+  width: calc(100% - 403px);
+  -webkit-text-stroke: 1px rgb(243, 243, 246);
+  text-stroke: 1px rgb(243, 243, 246);
+  color: transparent;
+}
+
+.about__text {
+  width: 100%;
+  color: rgb(199, 196, 213);
+  max-width: 403px;
+}
+
 /*! -- FAQ styles----------------------------- */
 
 .faq {
@@ -601,6 +746,26 @@ input[type=tel].disabled::placeholder {
   line-height: 14px;
 }
 
+.webp .about__inner::after {
+  background-image: url(../img/about-bg-logo.webp);
+}
+
+.webp .about::before {
+  background-image: url(../img/dots-bg.webp);
+}
+
+.webp .about__left-column::before {
+  background-image: url(../img/ua-map.webp);
+}
+
+@media (max-width: 1650px) {
+  /*! -- About styles----------------------------- */
+
+  .about__inner::after {
+    left: 1311px;
+  }
+}
+
 @media (max-width: 1199px) {
   .container {
     max-width: 100%;
@@ -626,6 +791,95 @@ input[type=tel].disabled::placeholder {
 
   .accordion {
     row-gap: 8px;
+  }
+
+  /*! -- About styles----------------------------- */
+
+  .about__inner {
+    padding: 96px 0px 64px;
+  }
+
+  .about__inner::after {
+    display: none;
+  }
+
+  .about::after {
+    display: none;
+  }
+
+  .about__container {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .about__left-column {
+    padding: 0px 0px 0px 0px;
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+
+  .no-webp .about__left-column::before {
+    background-image: url("../img/ua-map-mobile.png");
+  }
+
+  .about__left-column::before {
+    width: 414.5px;
+    height: 273px;
+  }
+
+  .about__logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    max-width: 325px;
+    height: 273px;
+  }
+
+  .about__logo svg {
+    height: 185px;
+  }
+
+  .about__right-column {
+    padding: 0;
+    width: 50%;
+    max-width: 100%;
+    row-gap: 32px;
+  }
+
+  .about__text-holder {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-column-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+    row-gap: 16px;
+  }
+
+  .about__title {
+    width: 100%;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  .about__text {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 18px;
   }
 
   /*! -- FAQ styles----------------------------- */
@@ -692,17 +946,54 @@ input[type=tel].disabled::placeholder {
   .social-nav {
     display: none;
   }
+
+  .webp .about__left-column::before {
+    background-image: url(../img/ua-map-mobile.webp);
+  }
 }
 
 @media (max-width: 767px) {
   .container {
     padding: 0 32px;
   }
+
+  /*! -- Accordion styles----------------------------- */
+
+  .accordion__btn {
+    -webkit-transition: unset;
+    -o-transition: unset;
+    transition: unset;
+  }
+
+  /*! -- About styles----------------------------- */
+
+  .about__container {
+    padding: 0px 64px;
+  }
 }
 
 @media (max-width: 575px) {
   .container {
     padding: 0 16px;
+  }
+
+  /*! -- About styles----------------------------- */
+
+  .about__container {
+    padding: 0px 16px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-column-gap: 0px;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+    row-gap: 64px;
+  }
+
+  .about__right-column,
+  .about__left-column {
+    width: 100%;
   }
 
   /*! -- Contacts styles----------------------------- */
