@@ -1,0 +1,74 @@
+/*! -- Accordion styles----------------------------- */
+
+.accordion {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+	&__btn {
+		background-color: #3d3e56;
+		color: $bw-source;
+		cursor: pointer;
+		padding: 18px 24px 16px 24px;
+		width: 100%;
+		border: none;
+		text-align: left;
+		line-height: 22px;
+		outline: none;
+		transition: all 0.4s ease 0s;
+		position: relative;
+		text-transform: uppercase;
+		&.active {
+			background-color: $purple-800;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $purple-800;
+			}
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 16px;
+			transform: translateY(-50%);
+			background-image: url("../img/plus.svg");
+			background-position: center center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			width: 24px;
+			height: 24px;
+			background-size: 24px 24px;
+			z-index: 1;
+		}
+	}
+
+	&__text-holder {
+		padding: 0px 24px 0px 24px;
+		background-color: $purple-800;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.2s ease-out;
+	}
+
+	&__text {
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 8px 0px 16px;
+		letter-spacing: 0.04em;
+	}
+	&__text + &__text {
+		margin: 22px 0px 16px;
+	}
+}
+
+.accordion__btn.active::after {
+	background-image: url("../img/minus.svg");
+	background-size: 16px 16px;
+}
+
+@media (max-width: $md1) {
+	/*! -- Accordion styles----------------------------- */
+	.accordion {
+		row-gap: 8px;
+	}
+}

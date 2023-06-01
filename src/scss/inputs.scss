@@ -1,0 +1,64 @@
+/*! -- Inputs styles----------------------------- */
+
+input[type="text"],
+input[type="tel"] {
+	box-sizing: border-box;
+	background-color: $bw-source;
+	border: 2px solid rgba(0, 0, 0, 0.12);
+	border-radius: 4px;
+	color: $bw-500;
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 400;
+	padding: 14px 16px 14px 38px;
+	transition: all 0.3s ease 0s;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder {
+	font-family: "Ubuntu", sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover {
+	border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+	border: 2px solid #5d9eff;
+	outline: none;
+}
+
+input[type="text"].disabled,
+input[type="tel"].disabled {
+	pointer-events: none;
+	border: 2px solid transparent;
+	background-color: #fafafa;
+}
+
+input[type="text"].disabled::placeholder,
+input[type="tel"].disabled::placeholder {
+	color: $bw-200;
+}
+
+.input-holder {
+	position: relative;
+}
+
+.input-holder::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translateY(-50%);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 14px;
+	height: 14px;
+	background-size: 14px 14px;
+}

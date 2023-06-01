@@ -1,12 +1,46 @@
-// @import "fonts";
+@import "fonts";
 @import "mixins";
 
-$fontFamily: "Arial", sans-serif;
+$yellow-50: rgb(252, 242, 225);
+$yellow-100: rgb(242, 218, 166);
+$yellow-200: rgb(227, 195, 113);
+$yellow-300: rgb(208, 172, 62);
+$yellow-400: rgb(187, 151, 0);
+$yellow-500: rgb(165, 130, 0);
+$yellow-600: rgb(141, 109, 0);
+$yellow-700: rgb(118, 90, 0);
+$yellow-800: rgb(96, 72, 0);
+$yellow-900: rgb(71, 51, 0);
+$bw-50: rgb(243, 243, 243);
+$bw-100: rgb(220, 220, 220);
+$bw-200: rgb(198, 198, 198);
+$bw-300: rgb(176, 176, 176);
+$bw-400: rgb(155, 155, 155);
+$bw-500: rgb(134, 134, 134);
+$bw-600: rgb(113, 113, 113);
+$bw-700: rgb(94, 94, 94);
+$bw-800: rgb(75, 75, 75);
+$bw-900: rgb(53, 53, 53);
+$purple-50: rgb(243, 243, 246);
+$purple-100: rgb(220, 219, 230);
+$purple-200: rgb(199, 196, 213);
+$purple-300: rgb(176, 173, 195);
+$purple-400: rgb(155, 152, 177);
+$purple-500: rgb(134, 131, 157);
+$purple-600: rgb(114, 110, 137);
+$purple-700: rgb(94, 91, 115);
+$purple-800: rgb(75, 73, 93);
+$purple-900: rgb(53, 52, 67);
+$yellow-source: #f8bd26;
+$bw-source: #ffffff;
+$purple-source: #3d3e56;
+
+$fontFamily: "Ubuntu", sans-serif;
 $fontSize: 16px;
 
 $minWidth: 320px;
 $maxWidth: 1920px;
-$maxWidthContainer: 1200px;
+$maxWidthContainer: 1148px;
 $md1: 1199px;
 $md2: 992px;
 $md3: 767px;
@@ -20,7 +54,9 @@ body {
 	}
 	font-size: $fontSize;
 	font-weight: 400;
-	line-height: 1;
+	line-height: 22px;
+	color: $purple-50;
+	background-color: $purple-900;
 }
 
 .wrapper {
@@ -35,16 +71,18 @@ body {
 	width: 100%;
 	max-width: $maxWidthContainer;
 	margin: 0 auto;
-	padding: 0 42px;
+	padding: 0 16px;
 	@media (max-width: $md1) {
-		// max-width: 100%;
-		// padding: 0 64px;
+		max-width: 100%;
+		padding: 0 64px;
 	}
 	@media (max-width: $md2) {
 	}
 	@media (max-width: $md3) {
+		padding: 0 32px;
 	}
 	@media (max-width: $md4) {
+		padding: 0 16px;
 	}
 }
 
@@ -52,6 +90,24 @@ body {
 	flex: 1 1 auto;
 }
 
+.title {
+	font-weight: 700;
+	font-size: 31px;
+	line-height: 40px;
+	color: $yellow-source;
+	text-transform: uppercase;
+	margin: 0px 0px 24px 0px;
+	@media (max-width: $md1) {
+		font-size: 20px;
+		line-height: 28px;
+		margin: 0px 0px 8px 0px;
+	}
+}
+
+@import "buttons";
+@import "inputs";
+@import "accordion";
 @import "blocks/forms";
 @import "blocks/header";
+@import "blocks/faq";
 @import "blocks/footer";

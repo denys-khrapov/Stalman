@@ -1,0 +1,45 @@
+/*! -- Buttons styles----------------------------- */
+
+.btn-full {
+	position: relative;
+	font-family: "Ubuntu", sans-serif;
+	font-size: $fontSize;
+	color: $bw-900;
+	background-color: $yellow-source;
+	line-height: 22px;
+	font-weight: 400;
+	border-radius: 4px;
+	display: flex;
+	width: fit-content;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	padding: 24px 32px;
+	text-transform: uppercase;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: 1px solid transparent;
+	&:focus {
+		background-color: $yellow-100;
+		outline: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	&:hover {
+		background-color: $yellow-100;
+		outline: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	&:active {
+		background-color: $yellow-source;
+		outline: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	&.blocked {
+		background-color: rgba(54, 54, 54, 0.1);
+		color: $bw-300;
+		pointer-events: none;
+	}
+	&.blocked:focus {
+		outline: none;
+	}
+	&.blocked::after {
+		display: none;
+	}
+}
