@@ -2,6 +2,7 @@
 
 input[type="text"],
 input[type="tel"] {
+	width: 100%;
 	box-sizing: border-box;
 	background-color: $bw-source;
 	border: 2px solid rgba(0, 0, 0, 0.12);

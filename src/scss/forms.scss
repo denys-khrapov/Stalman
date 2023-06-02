@@ -1,0 +1,84 @@
+/*! -- Form styles----------------------------- */
+
+.form {
+	&__title {
+		font-size: 31px;
+		line-height: 40px;
+		color: $yellow-source;
+		font-weight: 700;
+	}
+	&__text {
+		color: $purple-50;
+	}
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		row-gap: 16px;
+	}
+
+	&__input-holder {
+		position: relative;
+		&--name {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 16px;
+				transform: translateY(-50%);
+				background-image: url("../img/user.svg");
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				width: 14px;
+				height: 14px;
+				z-index: 1;
+			}
+		}
+		&--phone {
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 16px;
+				transform: translateY(-50%);
+				background-image: url("../img/phone.svg");
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				width: 14px;
+				height: 14px;
+				z-index: 1;
+			}
+		}
+	}
+
+	&__button-holder {
+		margin: 16px 0px 0px 0px;
+		.btn-full {
+			width: 100%;
+		}
+	}
+	&__select-holder {
+		span {
+			width: 100%;
+			display: flex;
+		}
+	}
+}
+
+@media (max-width: $md1) {
+	/*! -- Form styles----------------------------- */
+	.form {
+		&__title {
+			font-size: 20px;
+			line-height: 28px;
+		}
+		&__text {
+			font-size: 13px;
+			line-height: 18px;
+		}
+		&__button-holder {
+			margin: 8px 0px 0px 0px;
+		}
+	}
+}
