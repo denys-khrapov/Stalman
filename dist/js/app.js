@@ -1,7 +1,10 @@
 jQuery(document).ready(function ($) {
+
+
 	testWebPFunction();
 	initAccordion();
 	initSelectDropDown();
+	initSlick();
 });
 
 
@@ -51,6 +54,28 @@ function initSelectDropDown(){
 		$('.select-dropdown__button span').text($(this).text()).parent().attr('data-value', itemValue);
 		$('.select-dropdown__list').toggleClass('active');
 		$('.select-dropdown__button').toggleClass('active');
+	});
+}
+
+
+function initSlick() {
+	$('.stages-slick').slick({
+		dots: false,
+		arrows: true,
+		infinite: true,
+		speed: 500,
+		variableWidth: true,
+		rows: 0,
+		prevArrow: $('.stages-prev.prev-btn'),
+		nextArrow: $('.stages-next.next-btn'),
+		responsive:[
+			{
+				breakpoint: 1200,
+				settings: {
+				dots: true
+				}
+			},
+		]
 	});
 }
 
