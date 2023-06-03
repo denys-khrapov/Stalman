@@ -26,13 +26,13 @@ function testWebPFunction() {
 
 
 function initAccordion() {
-	var acc = document.getElementsByClassName("accordion__btn");
-	var i;
+	let acc = document.getElementsByClassName("accordion__btn");
+	let i;
 	
 	for (i = 0; i < acc.length; i++) {
 	  acc[i].addEventListener("click", function() {
 		 this.classList.toggle("active");
-		 var panel = this.nextElementSibling;
+		 let panel = this.nextElementSibling;
 		 if (panel.style.maxHeight) {
 			panel.style.maxHeight = null;
 		 } else {
@@ -50,7 +50,7 @@ function initSelectDropDown(){
 		$('.select-dropdown__list').toggleClass('active');
 	});
 	$('.select-dropdown__list-item').on('click', function(){
-		var itemValue = $(this).data('value');
+		let itemValue = $(this).data('value');
 		$('.select-dropdown__button span').text($(this).text()).parent().attr('data-value', itemValue);
 		$('.select-dropdown__list').toggleClass('active');
 		$('.select-dropdown__button').toggleClass('active');
@@ -78,5 +78,69 @@ function initSlick() {
 		]
 	});
 }
+
+
+
+
+
+
+
+	let swiper = new Swiper('.portfolio-slider', {
+		navigation:{
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		slidesPerView: 'auto',
+		pagination:{
+			el:'.swiper-pagination',
+			clickable: true,
+		},
+		breakpoints:{
+			320:{
+				spaceBetween: 16,
+				loop: true
+			},
+			1200	:{
+				spaceBetween: 24,
+				loop: false,
+				pagination: false,
+			}
+		}
+	});
+	
+	swiper.on('slideChange', function() {
+		let totalSlides = swiper.slides.length;
+		let activeIndex = swiper.activeIndex;
+		let hideContent = $('.hide-content');
+		if (window.matchMedia('(min-width: 1200px)').matches) {
+		if (totalSlides - activeIndex === 3) {
+		  let lastTwoSlides = swiper.slides.slice(-2);
+	
+		  lastTwoSlides.forEach(function(slide) {
+			//  slide.style.boxShadow = 'inset 0 0 4px rgba(255, 255, 255, 0.15)';
+			//  hideContent.each(function() {
+			// 	this.style.opacity = '1';
+			// 	this.style.visibility = 'visible';
+			//  });
+			slide.classList.add('test');
+		  });
+		} else{
+			let allSlides = swiper.slides;
+
+			allSlides.forEach(function(slide) {
+			//   slide.style.boxShadow = '';
+			//   hideContent.each(function() {
+			// 	this.style.opacity = '';
+			// 	this.style.visibility = '';
+			//  });
+			slide.classList.remove('test');
+			});
+		}
+	}
+	});
+
+
+
+
 
 

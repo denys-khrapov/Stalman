@@ -1,0 +1,65 @@
+/*! -- Arrows-swiper styles----------------------------- */
+.portfolio-nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin: 0px 0px 16px 0px;
+	column-gap: 8px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	position: relative;
+	left: unset;
+	right: unset;
+	margin: 0;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, 0.15);
+	border: 2px solid rgba(54, 54, 54, 0.1);
+	border-radius: 4px;
+	&.swiper-button-disabled {
+		opacity: 1;
+	}
+}
+
+.swiper-button-prev {
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-image: url("../img/prev-btn-icon.svg");
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 18px;
+		height: 18px;
+	}
+	&.swiper-button-disabled {
+		&::after {
+			opacity: 0.35;
+		}
+	}
+}
+.swiper-button-next {
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-image: url("../img/next-btn-icon.svg");
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 18px;
+		height: 18px;
+	}
+	&.swiper-button-disabled {
+		&::after {
+			opacity: 0.35;
+		}
+	}
+}

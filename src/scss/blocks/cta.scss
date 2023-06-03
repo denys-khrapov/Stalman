@@ -15,7 +15,7 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		mix-blend-mode: luminosity;
-		filter: blur(5px);
+		// filter: blur(5px);
 	}
 	&__container {
 		position: relative;
@@ -125,12 +125,6 @@
 				transform: rotate(180deg);
 			}
 		}
-
-		// .zmdi-chevron-down {
-		// 	position: absolute;
-		// 	right: 10px;
-		// 	top: 12px;
-		// }
 	}
 
 	&__list {
