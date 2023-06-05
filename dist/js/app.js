@@ -1,10 +1,10 @@
 jQuery(document).ready(function ($) {
-
-
 	testWebPFunction();
 	initAccordion();
 	initSelectDropDown();
 	initSlick();
+	initSwiper();
+	initHoverandClickCard();
 });
 
 
@@ -80,12 +80,9 @@ function initSlick() {
 }
 
 
+function initSwiper(){
 
-
-
-
-
-	let swiper = new Swiper('.portfolio-slider', {
+	let swiperPortfolio = new Swiper('.portfolio-slider', {
 		navigation:{
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -107,39 +104,164 @@ function initSlick() {
 			}
 		}
 	});
+
+	let swiperWhat = new Swiper('.what-slider',{
+		navigation:{
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		slidesPerView: 'auto',
+		pagination:{
+			el:'.swiper-pagination',
+			clickable: true,
+		},
+		breakpoints:{
+			320:{
+				spaceBetween: 16,
+				loop: true
+			},
+			1200	:{
+				spaceBetween: 24,
+				loop: false,
+				pagination: false,
+			}
+		}
+		
+	})
+
 	
-	swiper.on('slideChange', function() {
-		let totalSlides = swiper.slides.length;
-		let activeIndex = swiper.activeIndex;
+	swiperPortfolio.on('slideChange', function() {
+		let totalSlides = swiperPortfolio.slides.length;
+		let activeIndex = swiperPortfolio.activeIndex;
 		let hideContent = $('.hide-content');
 		if (window.matchMedia('(min-width: 1200px)').matches) {
 		if (totalSlides - activeIndex === 3) {
-		  let lastTwoSlides = swiper.slides.slice(-2);
+		  let lastTwoSlides = swiperPortfolio.slides.slice(-2);
 	
 		  lastTwoSlides.forEach(function(slide) {
-			//  slide.style.boxShadow = 'inset 0 0 4px rgba(255, 255, 255, 0.15)';
-			//  hideContent.each(function() {
-			// 	this.style.opacity = '1';
-			// 	this.style.visibility = 'visible';
-			//  });
-			slide.classList.add('test');
+			slide.classList.add('show-content');
 		  });
 		} else{
-			let allSlides = swiper.slides;
+			let allSlides = swiperPortfolio.slides;
 
 			allSlides.forEach(function(slide) {
-			//   slide.style.boxShadow = '';
-			//   hideContent.each(function() {
-			// 	this.style.opacity = '';
-			// 	this.style.visibility = '';
-			//  });
-			slide.classList.remove('test');
+			slide.classList.remove('show-content');
 			});
 		}
 	}
 	});
+}
 
 
+function initHoverandClickCard(){
+	var mediaQuery = window.matchMedia("(min-width: 1200px)");
+ 
+	function applyHoverEffect() {
+	  $(".what__swiper-inner").each(function() {
+		 var $this = $(this);
+		 var hideContent = $this.find(".hide-content");
+		 var imageHolder = $this.find(".what__image-holder img");
+		 var originalHeight = imageHolder.height();
+ 
+		 $this.hover(
+			function() {
+			  hideContent.addClass("active");
+			  imageHolder.addClass("active");
+			  updateImageHeight(imageHolder, hideContent, originalHeight, true);
+			},
+			function() {
+			  hideContent.removeClass("active");
+			  imageHolder.removeClass("active");
+			  updateImageHeight(imageHolder, hideContent, originalHeight, false);
+			}
+		 );
+	  });
+	}
+ 
+	function applyClickEffect() {
+	  $(".what__swiper-inner").each(function() {
+		 var $this = $(this);
+		 var hideContent = $this.find(".hide-content");
+		 var imageHolder = $this.find(".what__image-holder img");
+		 var originalHeight = imageHolder.height();
+ 
+		 $this.on("click", function() {
+			hideContent.toggleClass("active");
+			imageHolder.toggleClass("active");
+			updateImageHeight(imageHolder, hideContent, originalHeight, true);
+		 });
+	  });
+	}
+
+	function applyClickEffect() {
+		$(".what__swiper-inner").each(function() {
+		  var $this = $(this);
+		  var hideContent = $this.find(".hide-content");
+		  var imageHolder = $this.find(".what__image-holder img");
+		  var originalHeight = imageHolder.height();
+	 
+		  $this.on("click", function() {
+			 hideContent.toggleClass("active");
+			 imageHolder.toggleClass("active");
+			 updateImageHeight(imageHolder, hideContent, originalHeight, true);
+	 
+			 $this.closest(".swiper-slide").toggleClass("hide-after", hideContent.hasClass("active"));
+			 $this.closest(".swiper-slide").toggleClass("hide-grayScale", hideContent.hasClass("active"));
+			 $this.closest(".swiper-slide").toggleClass("hide-outline", hideContent.hasClass("active"));
+		  });
+		});
+	 }
+	 
+	if (mediaQuery.matches) {
+	  applyHoverEffect();
+	} else {
+	  applyClickEffect();
+	}
+ 
+	mediaQuery.addListener(function() {
+	  if (mediaQuery.matches) {
+		 applyHoverEffect();
+	  } else {
+		 applyClickEffect();
+	  }
+	});
+
+	function updateImageHeight(imageHolder, hideContent, originalHeight, animate) {
+		if (hideContent.hasClass("active")) {
+		  var hideContentHeight = hideContent.outerHeight();
+		  var newHeight = originalHeight - hideContentHeight;
+		  if (animate) {
+			 imageHolder.addClass("transition-height");
+			 imageHolder.css("height", newHeight);
+		  } else {
+			 imageHolder.removeClass("transition-height");
+			 imageHolder.css("height", newHeight);
+		  }
+		  imageHolder.css({
+			 "border-bottom-right-radius": "0px",
+			 "border-bottom-left-radius": "0px"
+		  });
+		} else {
+		  if (animate) {
+			 imageHolder.addClass("transition-height");
+			 setTimeout(function() {
+				imageHolder.css("height", originalHeight);
+			 }, 0);
+		  } else {
+			 imageHolder.removeClass("transition-height");
+			 imageHolder.css("height", originalHeight);
+		  }
+		  imageHolder.css({
+			 "border-bottom-right-radius": "",
+			 "border-bottom-left-radius": ""
+		  });
+		}
+	 }
+	
+}
+
+
+ 
 
 
 

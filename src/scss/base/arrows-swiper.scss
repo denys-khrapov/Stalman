@@ -1,5 +1,6 @@
 /*! -- Arrows-swiper styles----------------------------- */
-.portfolio-nav {
+.portfolio-nav,
+.what-nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -60,6 +61,25 @@
 	&.swiper-button-disabled {
 		&::after {
 			opacity: 0.35;
+		}
+	}
+}
+
+.swiper-pagination {
+	position: static;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 16px 0px 0px 0px;
+	.swiper-pagination-bullet {
+		width: 16px;
+		height: 8px;
+		border-radius: 2px;
+		background-color: $purple-800;
+		transition: all 0.5s ease 0s;
+		&.swiper-pagination-bullet-active {
+			width: 32px;
+			background-color: $yellow-source;
 		}
 	}
 }
