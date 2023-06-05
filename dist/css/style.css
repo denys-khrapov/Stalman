@@ -1440,16 +1440,6 @@ input[type=tel].disabled::placeholder {
   border-radius: 8px;
 }
 
-.portfolio .swiper-slide.swiper-slide-active .hide-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-.portfolio .swiper-slide.show-content .hide-content {
-  opacity: 1;
-  visibility: visible;
-}
-
 .portfolio .hide-content {
   opacity: 0;
   visibility: hidden;
@@ -2232,6 +2222,11 @@ input[type=tel].disabled::placeholder {
     width: 288px;
   }
 
+  .portfolio .swiper-slide.swiper-slide-active .hide-content {
+    opacity: 1;
+    visibility: visible;
+  }
+
   .portfolio__slider::before {
     display: none;
   }
@@ -2653,5 +2648,10 @@ input[type=tel].disabled::placeholder {
 
   .swiper-slide:hover {
     outline: none;
+  }
+
+  .swiper-slide:hover .hide-content {
+    opacity: 1;
+    visibility: visible;
   }
 }

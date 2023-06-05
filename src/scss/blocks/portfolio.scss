@@ -33,19 +33,6 @@
 			object-fit: cover;
 			border-radius: 8px;
 		}
-		&.swiper-slide-active {
-			.hide-content {
-				opacity: 1;
-				visibility: visible;
-			}
-		}
-
-		&.show-content {
-			.hide-content {
-				opacity: 1;
-				visibility: visible;
-			}
-		}
 	}
 
 	.hide-content {
@@ -141,12 +128,27 @@
 	}
 }
 
+@media (any-hover: hover) {
+	.swiper-slide:hover {
+		.hide-content {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
 @media (max-width: $md1) {
 	/*! -- Portfolio styles----------------------------- */
 	.portfolio {
 		padding: 64px 0px;
 		.swiper-slide {
 			width: 288px;
+			&.swiper-slide-active {
+				.hide-content {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
 		}
 		&__slider {
 			&::before {

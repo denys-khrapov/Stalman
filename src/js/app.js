@@ -128,28 +128,6 @@ function initSwiper(){
 		}
 		
 	})
-
-	
-	swiperPortfolio.on('slideChange', function() {
-		let totalSlides = swiperPortfolio.slides.length;
-		let activeIndex = swiperPortfolio.activeIndex;
-		let hideContent = $('.hide-content');
-		if (window.matchMedia('(min-width: 1200px)').matches) {
-		if (totalSlides - activeIndex === 3) {
-		  let lastTwoSlides = swiperPortfolio.slides.slice(-2);
-	
-		  lastTwoSlides.forEach(function(slide) {
-			slide.classList.add('show-content');
-		  });
-		} else{
-			let allSlides = swiperPortfolio.slides;
-
-			allSlides.forEach(function(slide) {
-			slide.classList.remove('show-content');
-			});
-		}
-	}
-	});
 }
 
 
@@ -260,8 +238,6 @@ function initHoverandClickCard(){
 	
 }
 
-
- 
 
 
 
