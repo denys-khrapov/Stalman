@@ -78,10 +78,12 @@
 		margin: 0px 0px 48px 0px;
 		padding: 4px 0px;
 		&__item {
-			color: $purple-500;
-			text-transform: uppercase;
-			font-size: 16px;
-			line-height: 22px;
+			a {
+				text-transform: uppercase;
+				font-size: 16px;
+				line-height: 22px;
+				color: $purple-500;
+			}
 		}
 	}
 }
