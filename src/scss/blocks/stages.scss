@@ -75,7 +75,7 @@
 			width: 100%;
 			visibility: hidden;
 			opacity: 0;
-			transition: all 0.6s ease 0s;
+			transition: all 0.4s ease 0s;
 			padding: 16px 24px;
 			font-size: 13px;
 			line-height: 18px;
@@ -84,12 +84,6 @@
 			width: 380px;
 			padding: 0 12px;
 			height: inherit !important;
-			&.slick-active {
-				.btn-full {
-					visibility: visible;
-					opacity: 1;
-				}
-			}
 		}
 
 		&__inner {
@@ -131,6 +125,15 @@
 			font-weight: 300;
 			margin: 0px 0px 16px 0px;
 			flex: 1 1 auto;
+		}
+	}
+}
+
+@media (any-hover: hover) {
+	.stages .slick-slide:hover {
+		.btn-full {
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 }
@@ -199,6 +202,12 @@
 			&.slick-slide {
 				width: 304px;
 				padding: 0 8px;
+				&.slick-active {
+					.btn-full {
+						opacity: 1;
+						visibility: visible;
+					}
+				}
 			}
 			&__title {
 				font-size: 16px;
