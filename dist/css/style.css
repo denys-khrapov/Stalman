@@ -140,6 +140,8 @@ h6 {
 }
 
 body {
+  overflow: visible !important;
+  width: 100%;
   font-size: 16px;
   font-weight: 400;
   line-height: 22px;
@@ -148,7 +150,7 @@ body {
 }
 
 body.lock {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .wrapper {
@@ -1309,7 +1311,7 @@ input[type=tel].disabled::placeholder {
 }
 
 .stages__slider .slick-list {
-  margin: 0 -100% 0 -12px;
+  overflow: visible;
 }
 
 .stages__slider .slick-track {

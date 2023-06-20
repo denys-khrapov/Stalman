@@ -49,8 +49,10 @@ $md4: 575px;
 @import "base/null";
 
 body {
+	overflow: visible !important;
+	width: 100%;
 	&.lock {
-		overflow: hidden;
+		overflow: hidden !important;
 	}
 	font-size: $fontSize;
 	font-weight: 400;

@@ -30,20 +30,43 @@ function testWebPFunction() {
 }
 
 function initAccordion() {
-	let acc = document.getElementsByClassName("accordion__btn");
-	let i;
+	// let acc = document.getElementsByClassName("accordion__btn");
+	// let i;
 	
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		 this.classList.toggle("active");
-		 let panel = this.nextElementSibling;
-		 if (panel.style.maxHeight) {
-			panel.style.maxHeight = null;
-		 } else {
-			panel.style.maxHeight = panel.scrollHeight + "px";
-		 } 
-	  });
-	}
+	// for (i = 0; i < acc.length; i++) {
+	//   acc[i].addEventListener("click", function() {
+	// 	 this.classList.toggle("active");
+	// 	 let panel = this.nextElementSibling;
+	// 	 if (panel.style.maxHeight) {
+	// 		panel.style.maxHeight = null;
+	// 	 } else {
+	// 		panel.style.maxHeight = panel.scrollHeight + "px";
+	// 	 } 
+	//   });
+	// }
+	let acc = document.getElementsByClassName("accordion__btn");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    let isActive = this.classList.contains("active");
+
+    // Закрываем все открытые элементы
+    for (let j = 0; j < acc.length; j++) {
+      acc[j].classList.remove("active");
+      let panel = acc[j].nextElementSibling;
+      panel.style.maxHeight = null;
+    }
+
+    // Открываем/закрываем текущий элемент
+    if (!isActive) {
+      this.classList.add("active");
+      let panel = this.nextElementSibling;
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
 }
 
 function initSelectDropDown(){
@@ -64,7 +87,7 @@ function initSlick() {
 	$('.stages-slick').slick({
 		dots: false,
 		arrows: true,
-		infinite: true,
+		infinite: false,
 		speed: 500,
 		variableWidth: true,
 		rows: 0,
@@ -243,7 +266,6 @@ function initMobileMenu() {
 	const headerMenu = $('.header__menu');
 	const body = $('body');
 	const headerMenuLink = $('.header__link');
-	// const headerMenuBtnEnroll = $('.btn-enroll');
 	const headerBtnCall = $('.modal-call-btn');
 	const headerOverlay = $('.overlay');
 
@@ -278,16 +300,6 @@ function initMobileMenu() {
 			headerBurger.removeClass('active');
 		}
 	});
-
-	// headerMenuBtnEnroll.on('click', function () {
-	// 	console.log('test');
-	// 	if (body.hasClass('lock') && headerMenu.hasClass('active') && headerBurger.hasClass('active')) {
-	// 		body.removeClass('lock');
-	// 		headerMenu.removeClass('active');
-	// 		headerBurger.removeClass('active');
-	// 	}
-	// });
-
 }
 
 function initScrollTo() {

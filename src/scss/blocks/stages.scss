@@ -63,7 +63,9 @@
 		position: relative;
 		z-index: 5;
 		.slick-list {
-			margin: 0 -100% 0 -12px;
+			// margin: 0 -100% 0 -12px;
+			// margin: 0 -100% 0 -100%;
+			overflow: visible;
 		}
 		.slick-track {
 			display: flex !important;
